@@ -1,9 +1,4 @@
 # ASP.NET
-- task: UseDotNet@2
-  inputs:
-    packageType: 'sdk'
-    version: 
-    includePreviewVersions: true
 # Build and test ASP.NET projects.
 # Add steps that publish symbols, save build artifacts, deploy, and moree:
 # https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
@@ -20,6 +15,9 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
